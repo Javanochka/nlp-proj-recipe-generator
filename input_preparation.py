@@ -1,7 +1,7 @@
 from nltk.tokenize import word_tokenize
 from nltk.tag import pos_tag
 
-
+# TODO: Replace NLTK with Spacy
 def tag_the_pos(_text):
     """Perform word tokenizing POS-tagging unto a given text."""
 
