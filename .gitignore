@@ -1,0 +1,4 @@
+# Folder for virtual Python environments.
+/venv/
+# Folder for the tags_dict_maker's foodbase elements.
+/foodbase/
