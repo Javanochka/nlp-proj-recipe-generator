@@ -1,6 +1,6 @@
 import spacy
 
-nlp = spacy.load('en_core_web_sm')
+nlp = spacy.load('en_core_web_md')
 
 
 def split_ingrlst_into_list(tagged_text: str) -> list:
@@ -13,13 +13,13 @@ def split_ingrlst_into_list(tagged_text: str) -> list:
 
 
 def acquire_ingredients(tagged_text: str) -> list:
-    """"""
-
+    """We collect the ingredient in the text through PRODUCT-type Named Entities."""
     curated_ingredients = []
-    item_sets = tagged_text.split("itemst")
-    for item in item_sets:
-        item.replace("itemfn", "")
-        ingredients = [i.text for i in nlp(item) if i.label == "PRODUCT"]  # Collect every "product" tagged elements
+    for item in split_ingrlst_into_list(tagged_text):
+        # For testing — TODO: To erase
+        ingredients = [(ent.text, ent.label_) for ent in nlp(item).ents]
+        # It fails to work — TODO: to fix.
+        # ingredients = [ent.text for ent in nlp(item).ents if ent.label_ == "PRODUCT"]
         curated_ingredients.append(ingredients)
 
     return curated_ingredients
