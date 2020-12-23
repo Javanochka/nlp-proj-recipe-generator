@@ -1,0 +1,4 @@
+; CSV files — likely to be large datasets (>1 MB)
+*.csv filter=lfs diff=lfs merge=lfs -text
+; Images & Pictures
+*.png filter=lfs diff=lfs merge=lfs -text
